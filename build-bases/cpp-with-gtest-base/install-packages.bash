@@ -1,10 +1,9 @@
 #!/bin/bash
 
-GOOGLETEST_VERSION="release-1.11.0"
+GOOGLETEST_VERSION="v1.14.0"
 
 apt-get update
-apt-get install -y build-essential git cmake autoconf libtool pkg-config
-
+apt-get install -y cmake
 
 old_pwd="$(pwd)"
 mkdir repositories
@@ -14,5 +13,13 @@ mkdir googletest/build
 cd googletest/build
 cmake ..
 make install
+
+cd ..
+
+git clone https://github.com/nlohmann/json.git
+cd json
+cmake .
+make install
+
 cd "${old_pwd}"
-rm -rf googletest
+rm -rf repositories

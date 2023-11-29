@@ -1,6 +1,6 @@
-FROM ubuntu:bionic
+FROM gcc:13.2.0
 
-COPY . /root
+COPY ./install-packages.bash /root
 
 WORKDIR /root
 
